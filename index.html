@@ -1,1 +1,161 @@
-<h1>henlo</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pokemon EV Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Pokemon EV Tracker</h1>
+        <p>Select a Pokemon to train and then click any Pokemon below to add EVs</p>
+        <table class="training-pokemon">
+            <tr>
+                <th>Pokemon</th>
+                <td>
+                    <select name="pokemon-list" id="pokemon-list">
+                    <option value="0001">Bulbasaur</option>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <th>Level</th>
+                <td>
+                    <textarea>5</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>Stat</th>
+                <th>HP</th>
+                <th>ATK</th>
+                <th>DEF</th>
+                <th>SP ATK</th>
+                <th>SP DEF</th>
+                <th>SPEED</th>
+            </tr>
+            <tr>
+                <th>Base Stats</th>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>31</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>IVs</th>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>EVs</th>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+                <td>
+                    <textarea>0</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>Final Stats</th>
+                <td>
+                    <textarea></textarea>
+                </td>
+                <td>
+                    <textarea></textarea>
+                </td>
+                <td>
+                    <textarea></textarea>
+                </td>
+                <td>
+                    <textarea></textarea>
+                </td>
+                <td>
+                    <textarea></textarea>
+                </td>
+                <td>
+                    <textarea></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>Nature</th>
+                <td>
+                    <select name="nature" id="nature">
+                        <option value="hardy">Hardy</option>
+                        <option value="lonely">Lonely</option>
+                        <option value="brave">Brave</option>
+                        <option value="adamant">Adamant</option>
+                        <option value="naughty">Naughty</option>
+                        <option value="bold">Bold</option>
+                        <option value="docile">Docile</option>
+                        <option value="relaxed">Relaxed</option>
+                        <option value="impish">Impish</option>
+                        <option value="lax">Lax</option>
+                        <option value="timid">Timid</option>
+                        <option value="hasty">Hasty</option>
+                        <option value="serious">Serious</option>
+                        <option value="jolly">Jolly</option>
+                        <option value="naive">Naive</option>
+                        <option value="modest">Modest</option>
+                        <option value="mild">Mild</option>
+                        <option value="quiet">Quiet</option>
+                        <option value="bashful">Bashful</option>
+                        <option value="rash">Rash</option>
+                        <option value="calm">Calm</option>
+                        <option value="gentle">Gentle</option>
+                        <option value="sassy">Sassy</option>
+                        <option value="careful">Careful</option>
+                        <option value="quirky">Quirky</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
