@@ -35,23 +35,23 @@ public class HTMLScrapeController
             for (var index = 0; index < pokemon.Count; index++)
             {
                 var p = pokemon[index];
-                jsonContent.Append("{\"Pokedex Number\":\"");
+                jsonContent.Append("{\"PokedexNumber\":\"");
                 jsonContent.Append(p.DexNumber);
                 jsonContent.Append("\",\"Name\":\"");
                 jsonContent.Append(p.Name);
-                jsonContent.Append("\",\"Base HP\":");
+                jsonContent.Append("\",\"BaseHP\":");
                 jsonContent.Append(p.BaseStats.HP);
-                jsonContent.Append(",\"Base ATK\":");
+                jsonContent.Append(",\"BaseATK\":");
                 jsonContent.Append(p.BaseStats.ATK);
-                jsonContent.Append(",\"Base DEF\":");
+                jsonContent.Append(",\"BaseDEF\":");
                 jsonContent.Append(p.BaseStats.DEF);
-                jsonContent.Append(",\"Base SP_ATK\":");
+                jsonContent.Append(",\"BaseSP_ATK\":");
                 jsonContent.Append(p.BaseStats.SP_ATK);
-                jsonContent.Append(",\"Base SP_DEF\":");
+                jsonContent.Append(",\"BaseSP_DEF\":");
                 jsonContent.Append(p.BaseStats.SP_DEF);
-                jsonContent.Append(",\"Base SPEED\":");
+                jsonContent.Append(",\"BaseSPEED\":");
                 jsonContent.Append(p.BaseStats.SPEED);
-                jsonContent.Append(",\"EVs Gained\":{\"HP\":");
+                jsonContent.Append(",\"EVsGained\":{\"HP\":");
                 jsonContent.Append(p.EVsGained.HP);
                 jsonContent.Append(",\"ATK\":");
                 jsonContent.Append(p.EVsGained.ATK);
@@ -72,7 +72,7 @@ public class HTMLScrapeController
 
             jsonContent.Append("]}");
             string jsonString = jsonContent.ToString().ReplaceLineEndings("").Replace("\t", "");
-            File.WriteAllText(@"e:\pokedex.json",jsonString);
+            File.WriteAllText(@"E:\Desktop\PokemonEVTracker\PokemonEVTracker\pokedex.json",jsonString);
     }
     
     

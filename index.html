@@ -16,8 +16,7 @@
             <tr>
                 <th>Pokemon</th>
                 <td>
-                    <select name="pokemon-list" id="pokemon-list">
-                    <option value="0001">Bulbasaur</option>
+                    <select name="pokemon-list" id="pokemon-list" onchange="selectPokemon(this.selectedIndex);" onfocus="this.selectedIndex = -1;">
                     </select>
                 </td>
 
@@ -37,7 +36,7 @@
                 <th>SP DEF</th>
                 <th>SPEED</th>
             </tr>
-            <tr>
+            <tr id="base-stats">
                 <th>Base Stats</th>
                 <td>
                     <textarea>0</textarea>
@@ -46,7 +45,7 @@
                     <textarea>0</textarea>
                 </td>
                 <td>
-                    <textarea>31</textarea>
+                    <textarea>0</textarea>
                 </td>
                 <td>
                     <textarea>0</textarea>
@@ -155,7 +154,7 @@
             </tr>
         </table>
     </div>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
