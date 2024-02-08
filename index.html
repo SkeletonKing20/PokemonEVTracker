@@ -15,16 +15,16 @@
         <table class="training-pokemon">
             <tr>
                 <th>Pokemon</th>
-                <td>
+                <td colspan="6">
                     <select name="pokemon-list" id="pokemon-list" onchange="selectPokemon(this.selectedIndex);" onfocus="this.selectedIndex = -1;">
                     </select>
                 </td>
 
             </tr>
-            <tr>
+            <tr id="level">
                 <th>Level</th>
-                <td>
-                    <textarea>5</textarea>
+                <td colspan="6">
+                    <input name="level" type="number" value="5" max="100" min="1">
                 </td>
             </tr>
             <tr>
@@ -39,90 +39,90 @@
             <tr id="base-stats">
                 <th>Base Stats</th>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="base-hp" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="base-atk" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="base-def" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="base-sp-atk" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="base-sp-def" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="base-speed" type="number" min="0" max="255">
                 </td>
             </tr>
-            <tr>
+            <tr id="iv-stats">
                 <th>IVs</th>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="iv-hp" type="number" min="0" max="31">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="iv-atk" type="number" min="0" max="31">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="iv-def" type="number" min="0" max="31">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="iv-sp-atk" type="number" min="0" max="31">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="iv-sp-def" type="number" min="0" max="31">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="iv-speed" type="number" min="0" max="31">
                 </td>
             </tr>
-            <tr>
+            <tr id="ev-stats">
                 <th>EVs</th>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="ev-hp" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="ev-atk" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="ev-def" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="ev-sp-atk" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="ev-sp-def" type="number" min="0" max="255">
                 </td>
                 <td>
-                    <textarea>0</textarea>
+                    <input name="ev-speed" type="number" min="0" max="255">
                 </td>
             </tr>
-            <tr>
+            <tr id="final-stats">
                 <th>Final Stats</th>
                 <td>
-                    <textarea></textarea>
+                    <input name="final-hp" type="number" min="0" max="714">
                 </td>
                 <td>
-                    <textarea></textarea>
+                    <input name="final-atk" type="number" min="0" max="714">
                 </td>
                 <td>
-                    <textarea></textarea>
+                    <input name="final-def" type="number" min="0" max="714">
                 </td>
                 <td>
-                    <textarea></textarea>
+                    <input name="final-sp-atk" type="number" min="0" max="714">
                 </td>
                 <td>
-                    <textarea></textarea>
+                    <input name="final-sp-def" type="number" min="0" max="714">
                 </td>
                 <td>
-                    <textarea></textarea>
+                    <input name="final-speed" type="number" min="0" max="714">
                 </td>
             </tr>
             <tr>
                 <th>Nature</th>
-                <td>
+                <td colspan="6">
                     <select name="nature" id="nature">
                         <option value="hardy">Hardy</option>
                         <option value="lonely">Lonely</option>
