@@ -1,32 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Desktop\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj": {}
+    "C:\\Users\\NBO\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj": {}
   },
   "projects": {
-    "E:\\Desktop\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj": {
+    "C:\\Users\\NBO\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Desktop\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj",
+        "projectUniqueName": "C:\\Users\\NBO\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj",
         "projectName": "PokemonEVTracker",
-        "projectPath": "E:\\Desktop\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj",
-        "packagesPath": "C:\\Users\\Nico\\.nuget\\packages\\",
-        "outputPath": "E:\\Desktop\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker\\obj\\",
+        "projectPath": "C:\\Users\\NBO\\PokemonEVTracker\\PokemonEVTracker\\PokemonEVTracker.csproj",
+        "packagesPath": "C:\\Users\\NBO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NBO\\PokemonEVTracker\\PokemonEVTracker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nico\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\NBO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://sitecore.myget.org/F/sc-packages/api/v3/index.json": {},
+          "https://tfs.oevermann.de/tfs/DefaultCollection/_packaging/Default/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -59,7 +62,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -60,43 +60,43 @@
             <tr id="iv-stats">
                 <th>IVs</th>
                 <td>
-                    <input name="iv-hp" type="number" min="0" max="31">
+                    <input name="iv-hp" min="0" max="31">
                 </td>
                 <td>
-                    <input name="iv-atk" type="number" min="0" max="31">
+                    <input name="iv-atk" min="0" max="31">
                 </td>
                 <td>
-                    <input name="iv-def" type="number" min="0" max="31">
+                    <input name="iv-def" min="0" max="31">
                 </td>
                 <td>
-                    <input name="iv-sp-atk" type="number" min="0" max="31">
+                    <input name="iv-sp-atk" min="0" max="31">
                 </td>
                 <td>
-                    <input name="iv-sp-def" type="number" min="0" max="31">
+                    <input name="iv-sp-def" min="0" max="31">
                 </td>
                 <td>
-                    <input name="iv-speed" type="number" min="0" max="31">
+                    <input name="iv-speed" min="0" max="31">
                 </td>
             </tr>
             <tr id="ev-stats">
                 <th>EVs</th>
                 <td>
-                    <input name="ev-hp" type="number" min="0" max="255">
+                    <input name="ev-hp" min="0" max="255">
                 </td>
                 <td>
-                    <input name="ev-atk" type="number" min="0" max="255">
+                    <input name="ev-atk" min="0" max="255">
                 </td>
                 <td>
-                    <input name="ev-def" type="number" min="0" max="255">
+                    <input name="ev-def" min="0" max="255">
                 </td>
                 <td>
-                    <input name="ev-sp-atk" type="number" min="0" max="255">
+                    <input name="ev-sp-atk" min="0" max="255">
                 </td>
                 <td>
-                    <input name="ev-sp-def" type="number" min="0" max="255">
+                    <input name="ev-sp-def" min="0" max="255">
                 </td>
                 <td>
-                    <input name="ev-speed" type="number" min="0" max="255">
+                    <input name="ev-speed" min="0" max="255">
                 </td>
             </tr>
             <tr id="final-stats">
@@ -151,6 +151,12 @@
                         <option value="quirky">Quirky</option>
                     </select>
                 </td>
+            </tr>
+            <tr>
+                <th>Options</th>
+                <td colspan="2"><button onclick="calcIVStats()" type="submit" name="calc-iv" id="calc-iv">Calculate IVs</button></td>
+                <td colspan="2"><button onclick="calcEVStats()" type="submit" name="calc-ev" id="calc-ev">Calculate EVs</button></td>
+                <td colspan="2"><button onclick="calcFinalStats()" type="submit" name="calc-stats" id="calc-stats">Calculate Final Stats</button></td>
             </tr>
         </table>
     </div>
