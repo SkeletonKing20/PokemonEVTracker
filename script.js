@@ -27,8 +27,22 @@ window.addEventListener('load', function() {
     });
 })
 
+function resetStats(){
+    for (let i = 1; i < 7; i++) {
+        baseStats.children[i].children[0].value = 0;        
+        ivStats.children[i].children[0].value = 0;
+        evStats.children[i].children[0].value = 0;
+        finalStats.children[i].children[0].value = 0;
+    }
+}
 
 function selectPokemon(index) {
+    resetStats();
+
+    if(index === "-1"){
+        return;
+    }
+
     let pok = obj.pokemon[index];
     baseStats.children[1].children[0].value = pok.BaseHP;
     baseStats.children[2].children[0].value = pok.BaseATK;
@@ -36,14 +50,6 @@ function selectPokemon(index) {
     baseStats.children[4].children[0].value = pok.BaseSP_ATK;
     baseStats.children[5].children[0].value = pok.BaseSP_DEF;
     baseStats.children[6].children[0].value = pok.BaseSPEED;
-
-    for (let i = 1; i < ivStats.children.length; i++) {
-        ivStats.children[i].children[0].value = 0;
-    }
-
-    for (let i = 1; i < evStats.children.length; i++) {
-        evStats.children[i].children[0].value = 0;
-    }
 
     calcFinalStats();
 }
@@ -58,11 +64,12 @@ function enforceInputMinMax(el) {
 }
 
 function calcHPStat(base, iv, ev, level) {
-    return Math.floor((((2 * parseInt(base) + parseInt(iv) + (parseInt(ev) / 4)) * parseInt(level)) / 100) + parseInt(level) + 10);
+    
+    return base <= 1 ? 1 : Math.floor(((parseInt(iv) + 2 * parseInt(base) + (parseInt(ev)/4) ) * parseInt(level)/100 ) + 10 + parseInt(level));
 }
 
 function calcOtherStat(base, iv, ev, level, natureMod) {
-    return Math.floor(Math.floor((((2 * parseInt(base) + parseInt(iv) + (parseInt(ev) / 4)) * parseInt(level)) / 100) + 5) * natureMod);
+    return Math.floor((((parseInt(iv) + 2 * parseInt(base) + (parseInt(ev)/4) ) * parseInt(level)/100 ) + 5) * natureMod);
 }
 
 function calcFinalStats(){
@@ -161,25 +168,29 @@ function getNatureMod(nature){
 
 function calcHPIV(base, final, ev, level){ 
     let x = Math.max(Math.min(Math.floor((((parseInt(final) - (parseInt(level) + 10)) * 100) / parseInt(level)) - (2 * parseInt(base) + (parseInt(ev) / 4))), 31),0);
-    let y = Math.max(Math.min(Math.floor((((parseInt(final)  - (parseInt(level) + 9)) * 100) / parseInt(level)) - (2 * parseInt(base) + (parseInt(ev) / 4)) - 1), 31),0);
+    final = parseInt(final) + 1;
+    let y = Math.max(Math.min(Math.floor((((parseInt(final)  - (parseInt(level) + 10)) * 100) / parseInt(level)) - (2 * parseInt(base) + (parseInt(ev) / 4))) - 1, 31),0);
     return x === y ? x : x + " - " + y;
 }
 
 function calcHPEV(base, final, iv, level){
     let x = Math.max(Math.min(4 * Math.floor((((parseInt(final) - (parseInt(level) + 10)) * 100) / parseInt(level)) - (2 * parseInt(base) + parseInt(iv))), 255),0);
-    let y = Math.max(Math.min(4 * Math.floor((((parseInt(final) - (parseInt(level) + 9)) * 100) / parseInt(level)) - (2 * parseInt(base) + parseInt(iv)) - 1), 255),0);
+    final = parseInt(final) + 1;
+    let y = Math.max(Math.min(4 * Math.floor((((parseInt(final) - (parseInt(level) + 10)) * 100) / parseInt(level)) - (2 * parseInt(base) + parseInt(iv))) - 1, 255),0);
     return x === y ? x : x + " - " + y;
 }
 
 function calcOtherIV(base, final, ev, level, natureMod){
     let x = Math.max(Math.min(Math.floor(((((parseInt(final)/natureMod) - 5) * 100) / parseInt(level)) - (2 * parseInt(base) + (parseInt(ev) / 4))), 31),0);
-    let y = Math.max(Math.min(Math.floor((((((parseInt(final) + 1)/natureMod) - 5) * 100) / parseInt(level)) - (2 * parseInt(base) + (parseInt(ev) / 4)) - 1), 31),0);
+    final = parseInt(final) + 1;
+    let y = Math.max(Math.min(Math.floor((((((parseInt(final))/natureMod) - 5) * 100) / parseInt(level)) - (2 * parseInt(base) + (parseInt(ev) / 4))) - 1, 31),0);
     return x === y ? x : x + " - " + y;
 }
 
 function calcOtherEV(base, final, iv, level, natureMod){
     let x = Math.max(Math.min(4 * Math.floor(((((parseInt(final)/natureMod) - 5) * 100) / parseInt(level)) - (2 * parseInt(base) + parseInt(iv))), 255),0);
-    let y = Math.max(Math.min(4 * Math.floor((((((parseInt(final) + 1)/natureMod) - 5) * 100) / parseInt(level)) - (2 * parseInt(base) + parseInt(iv)) - 4), 255),0);
+    final = parseInt(final) + 1;
+    let y = Math.max(Math.min(4 * Math.floor((((((parseInt(final))/natureMod) - 5) * 100) / parseInt(level)) - (2 * parseInt(base) + parseInt(iv))) - 1, 255),0);
     return x === y ? x : x + " - " + y;
 }
 
@@ -264,3 +275,4 @@ function calcEVStats(){
                                                     level,
                                                     mod[4]);
 }
+

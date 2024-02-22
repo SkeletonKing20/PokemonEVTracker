@@ -16,7 +16,8 @@
             <tr>
                 <th>Pokemon</th>
                 <td colspan="6">
-                    <select name="pokemon-list" id="pokemon-list" onchange="selectPokemon(this.selectedIndex);" onfocus="this.selectedIndex = -1;">
+                    <select name="pokemon-list" id="pokemon-list" onchange="selectPokemon(this.value);" onfocus="this.selectedIndex = -1;">
+                        <option value="-1">--------</option>  
                     </select>
                 </td>
 
