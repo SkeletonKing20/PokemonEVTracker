@@ -273,7 +273,13 @@ function calcEVStats(){
                                                     mod[4]);
 }
 
-function trackEV(evs){       
+function trackEV(evsInit){ 
+    let evs = [evsInit[0],
+    evsInit[1],
+    evsInit[2],
+    evsInit[3],
+    evsInit[4],
+    evsInit[5]];   
     let evCount = 0;
     for(let x = 1; x < 7; x++){
         evCount = parseInt(evCount) + parseInt(evStats.children[x].children[0].value);
@@ -301,12 +307,38 @@ function trackEV(evs){
 function addPokemon(){
     let track = document.getElementById('pokemon-tracker');
     for (let i = 0; i < obj.pokemon.length; i++) {
-        var trackPok = document.createElement('img');
-        trackPok.alt = obj.pokemon[i].Name;
 
-        trackPok.src = "https://img.pokemondb.net/sprites/home/normal/2x/" + getName(obj.pokemon[i].Name) + ".jpg";
-        trackPok.onclick = "trackEV()";
-        track.appendChild(trackPok);
+        let name = getName(obj.pokemon[i].Name);
+
+        let wrap = document.createElement('button');
+        let nameEl = document.createElement('span');
+        let count = document.createElement('input');
+        count.type = "number";
+        count.id = name + "-counter";
+        count.classList += "counter";
+        count.value = 0;
+        nameEl.innerText = obj.pokemon[i].Name;
+        wrap.classList += "poke-wrap";
+        let trackPok = document.createElement('img');
+        trackPok.alt = obj.pokemon[i].Name;
+        trackPok.src = "https://img.pokemondb.net/sprites/home/normal/" + name + ".png";
+
+
+        let evs = [obj.pokemon[i].EVsGained.HP,
+                    obj.pokemon[i].EVsGained.ATK,
+                    obj.pokemon[i].EVsGained.DEF,
+                    obj.pokemon[i].EVsGained.SP_ATK,
+                    obj.pokemon[i].EVsGained.SP_DEF,
+                    obj.pokemon[i].EVsGained.SPEED,];
+        track.appendChild(wrap);
+        wrap.appendChild(trackPok);
+        wrap.appendChild(nameEl);
+        wrap.appendChild(count);
+
+        wrap.addEventListener("click", function (){
+            trackEV(evs);
+            count.value++;
+        });
     }
 }
 
@@ -323,7 +355,7 @@ function arrayMax(arr) {
   function getName(name){
     let add;
     name = name.toLowerCase();
-    if(name.includes("standard") || name.includes("normal") || name.includes("hero of many battles")){
+    if(name.includes("normal") || name.includes("hero of many battles")){
         return name.split('(')[0];
     }
     name = name.replaceAll(" forme", "");

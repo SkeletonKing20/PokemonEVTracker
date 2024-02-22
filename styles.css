@@ -1,0 +1,58 @@
+img {
+    width: 120px;
+    height: 120px;
+    padding: 0px 5px;
+    margin: 0 auto;
+    display: block;
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+    background: rgb(255,215,0);
+    background: linear-gradient(45deg, rgba(255,215,0,1) 0%, rgba(255,255,255,1) 60%, rgba(192,192,192,1) 100%);
+    border-radius: 5px 5px 0px 0px;
+}
+.main{
+    width: 66vw;
+    margin: 0 auto;
+    height: fit-content;
+}
+
+input
+{
+    width: 80px;
+}
+
+table.training-pokemon tr th:first-child
+{
+    text-align: left;
+}
+
+body{
+    background-color: darkgray;
+}
+
+.poke-wrap{
+    overflow: hidden;
+    border-radius: 10px;
+    width: 160px;
+    height: 200px;
+    padding: 8px;
+    margin: 5px;
+    float: left;
+    background: rgb(60,90,166);
+    background: linear-gradient(315deg, rgba(60,90,166,1) 0%, rgba(192,192,192,1) 60%, rgba(42,117,187,1) 100%);
+}
+
+.poke-wrap:hover{
+    background-color: gray;
+}
+
+button{
+    border: none;
+}
+
+.counter{
+    display: block;
+    width: 40px;
+    margin: 5px auto;
+    text-align: right;
+}
