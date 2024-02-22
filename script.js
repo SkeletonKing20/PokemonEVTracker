@@ -20,6 +20,8 @@ window.addEventListener('load', function() {
     }
 
     resetStats();
+
+    addPokemon();
 })
 
 function resetStats(){
@@ -301,9 +303,10 @@ function addPokemon(){
     for (let i = 0; i < obj.pokemon.length; i++) {
         var trackPok = document.createElement('img');
         trackPok.alt = obj.pokemon[i].Name;
-        trackPok.href = obj.pokemon[i].
-        opt.innerHTML = obj.pokemon[i].Name;
-        select.appendChild(opt);
+
+        trackPok.src = "https://img.pokemondb.net/sprites/home/normal/2x/" + getName(obj.pokemon[i].Name) + ".jpg";
+        trackPok.onclick = "trackEV()";
+        track.appendChild(trackPok);
     }
 }
 
@@ -316,3 +319,54 @@ function arrayMax(arr) {
     }
     return max;
   };
+
+  function getName(name){
+    let add;
+    name = name.toLowerCase();
+    if(name.includes("standard") || name.includes("normal") || name.includes("hero of many battles")){
+        return name.split('(')[0];
+    }
+    name = name.replaceAll(" forme", "");
+    name = name.replaceAll(" form", "");
+    name = name.replaceAll(" mask", "");
+    name = name.replaceAll(" teal", "");
+    name = name.replaceAll(" mode", "");
+    name = name.replaceAll(" style", "");
+    name = name.replaceAll(" breed", "");
+    name = name.replaceAll(" cloak", "");
+    name = name.replaceAll(" plumage", "");
+    name = name.replaceAll(" face", "");
+    name = name.replaceAll(" sword", "");
+    name = name.replaceAll(" shield", "");
+    name = name.replaceAll(" size", "");
+    name = name.replaceAll("combat", "paldean");
+    name = name.replaceAll("%", "");
+    name = name.replaceAll("é", "e");
+    name = name.replaceAll(".", "");
+    name = name.replaceAll("'", "");
+    name = name.replaceAll(":", "");
+    name = name.replaceAll("♀", "-f");
+    name = name.replaceAll("♂", "-m");
+    
+    name = name.replaceAll(" ", "-");
+    if(name.includes("(")){
+
+        add = name.split('(')[1];
+        name = name.split('(')[0];
+        add = add.replace(")", "");
+        add = add.replaceAll("-" + name, "");
+        add = add.replaceAll(name, "");
+
+        name = name + "-" + add;
+    }
+
+    
+    
+    
+    name = name.replaceAll("--", "-");
+    name = name.replaceAll("eevee-partner", "eevee");
+    name = name.replaceAll("partner", "partner-cap");
+    name = name.replaceAll("family-of-three", "family3");
+    name = name.replaceAll("family-of-four", "family4");
+    return name;
+  }
