@@ -19,12 +19,7 @@ window.addEventListener('load', function() {
         select.appendChild(opt);
     }
 
-    select.selectedIndex = -1;
-
-    let nodes = document.querySelectorAll('input[type="number"]')
-    nodes.forEach((el) => {
-        el.addEventListener("change", enforceInputMinMax(el));
-    });
+    resetStats();
 })
 
 function resetStats(){
@@ -276,3 +271,48 @@ function calcEVStats(){
                                                     mod[4]);
 }
 
+function trackEV(evs){       
+    let evCount = 0;
+    for(let x = 1; x < 7; x++){
+        evCount = parseInt(evCount) + parseInt(evStats.children[x].children[0].value);
+    }
+
+    let incr = 0;
+    while(arrayMax(evs) > 0 && (evCount + incr) < 512){
+        for(let z = 1; z < 7; z++){
+            if(evs[z - 1] === 0){
+                continue;
+            }
+            evStats.children[z].children[0].value = Math.min(parseInt(evStats.children[z].children[0].value) + 1,255);
+            evs[z - 1]--;
+            incr++;
+
+            if((evCount + incr) === 512){
+                return;
+            }
+        }
+    }
+    
+    calcFinalStats();
+}
+
+function addPokemon(){
+    let track = document.getElementById('pokemon-tracker');
+    for (let i = 0; i < obj.pokemon.length; i++) {
+        var trackPok = document.createElement('img');
+        trackPok.alt = obj.pokemon[i].Name;
+        trackPok.href = obj.pokemon[i].
+        opt.innerHTML = obj.pokemon[i].Name;
+        select.appendChild(opt);
+    }
+}
+
+function arrayMax(arr) {
+    var len = arr.length, max = -Infinity;
+    while (len--) {
+      if (arr[len] > max) {
+        max = arr[len];
+      }
+    }
+    return max;
+  };
