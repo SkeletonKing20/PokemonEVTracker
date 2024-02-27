@@ -20,6 +20,16 @@ input
     width: 80px;
 }
 
+.table{
+    position: fixed;
+    left: 50px;
+    background-color: white;
+    padding: 20px;
+    border: solid 3px black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius:5px;
+}
+
 table.training-pokemon tr th:first-child
 {
     text-align: left;
@@ -61,4 +71,8 @@ button{
     width: 40px;
     margin: 5px auto;
     text-align: right;
+}
+
+.wrapper{
+    padding-top: 300px;
 }
