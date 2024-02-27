@@ -6,8 +6,7 @@ img {
     display: block;
     border-bottom: 1px solid black;
     margin-bottom: 5px;
-    background: rgb(255,215,0);
-    background: linear-gradient(45deg, rgba(255,215,0,1) 0%, rgba(255,255,255,1) 60%, rgba(192,192,192,1) 100%);
+    background: #FFCC00;
     border-radius: 5px 5px 0px 0px;
 }
 .main{
@@ -33,17 +32,24 @@ body{
 .poke-wrap{
     overflow: hidden;
     border-radius: 10px;
+    border: 5px solid darkblue;
     width: 160px;
     height: 200px;
     padding: 8px;
     margin: 5px;
     float: left;
-    background: rgb(60,90,166);
-    background: linear-gradient(315deg, rgba(60,90,166,1) 0%, rgba(192,192,192,1) 60%, rgba(42,117,187,1) 100%);
+    background: #0075BE;
+}
+
+.poke-wrap p{
+    width: fit-content;
+    margin: 0 auto;
+    
 }
 
 .poke-wrap:hover{
-    background-color: gray;
+    background-color: cyan;
+    cursor: pointer;
 }
 
 button{

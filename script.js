@@ -304,6 +304,12 @@ function trackEV(evsInit){
     calcFinalStats();
 }
 
+function subTrackEv(evsInit){
+    for(let x = 1; x < 7; x++){
+        evStats.children[x].children[0].value = Math.max(parseInt(evsInit[x-1]) + parseInt(evStats.children[x].children[0].value), 0);
+    }
+}
+
 function addPokemon(){
     let track = document.getElementById('pokemon-tracker');
     for (let i = 0; i < obj.pokemon.length; i++) {
@@ -312,11 +318,9 @@ function addPokemon(){
 
         let wrap = document.createElement('button');
         let nameEl = document.createElement('span');
-        let count = document.createElement('input');
-        count.type = "number";
-        count.id = name + "-counter";
+        let count = document.createElement('p');
         count.classList += "counter";
-        count.value = 0;
+        count.innerText = 0;
         nameEl.innerText = obj.pokemon[i].Name;
         wrap.classList += "poke-wrap";
         let trackPok = document.createElement('img');
