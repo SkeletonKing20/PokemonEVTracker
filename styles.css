@@ -20,7 +20,7 @@ input
     width: 80px;
 }
 
-.table{
+table.training-pokemon{
     position: fixed;
     left: 50px;
     background-color: white;
