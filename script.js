@@ -306,7 +306,7 @@ function trackEV(evsInit){
 
 function subTrackEv(evsInit){
     for(let x = 1; x < 7; x++){
-        evStats.children[x].children[0].value = Math.max(parseInt(evsInit[x-1]) + parseInt(evStats.children[x].children[0].value), 0);
+        evStats.children[x].children[0].value = Math.max(parseInt(evStats.children[x].children[0].value) - parseInt(evsInit[x-1]), 0);
     }
 }
 
@@ -316,8 +316,8 @@ function addPokemon(){
 
         let name = getName(obj.pokemon[i].Name);
 
-        let wrap = document.createElement('button');
-        let nameEl = document.createElement('span');
+        let wrap = document.createElement('div');
+        let nameEl = document.createElement('p');
         let count = document.createElement('p');
         count.classList += "counter";
         count.innerText = 0;
@@ -337,12 +337,80 @@ function addPokemon(){
         track.appendChild(wrap);
         wrap.appendChild(trackPok);
         wrap.appendChild(nameEl);
+
+        let evGain = document.createElement('table');
+        evGain.classList += 'evs-gained';
+        let head = document.createElement('thead');
+        let body = document.createElement('tbody');
+
+        evGain.appendChild(head);
+        evGain.appendChild(body);
+
+        let hp = document.createElement('th');
+        hp.innerText = 'HP';
+        head.appendChild(hp);
+        let atk = document.createElement('th');
+        atk.innerText = 'ATK';
+        head.appendChild(atk);
+        let def = document.createElement('th');
+        def.innerText = 'DEF';
+        head.appendChild(def);
+        let spatk = document.createElement('th');
+        spatk.innerText = 'SP.ATK';
+        head.appendChild(spatk);
+        let spdef = document.createElement('th');
+        spdef.innerText = 'SP.DEF';
+        head.appendChild(spdef);
+        let speed = document.createElement('th');
+        speed.innerText = 'SPEED';
+        head.appendChild(speed);
+
+        let hpEv = document.createElement('td');
+        hpEv.innerText = evs[0];
+        body.appendChild(hpEv);
+        let atkEv = document.createElement('td');
+        atkEv.innerText = evs[1];
+        body.appendChild(atkEv);
+        let defEv = document.createElement('td');
+        defEv.innerText = evs[2];
+        body.appendChild(defEv);
+        let spatkEv = document.createElement('td');
+        spatkEv.innerText = evs[3];
+        body.appendChild(spatkEv);
+        let spdefEv = document.createElement('td');
+        spdefEv.innerText = evs[4];
+        body.appendChild(spdefEv);
+        let speedEv = document.createElement('td');
+        speedEv.innerText = evs[5];
+        body.appendChild(speedEv);
+
+        wrap.appendChild(evGain);
+        
         wrap.appendChild(count);
 
-        wrap.addEventListener("click", function (){
+        let tracking = document.createElement('span');
+
+        let increment = document.createElement('button');
+        let decrement = document.createElement('button');
+
+        increment.innerText = '+';
+        decrement.innerText = '-';
+
+        increment.addEventListener("click", function (){
             trackEV(evs);
-            count.value++;
+            count.innerText = parseInt(count.innerText) + 1;
         });
+
+        decrement.addEventListener("click", function (){
+            if(parseInt(count.innerText) >= 1){
+                subTrackEv(evs);
+                count.innerText = parseInt(count.innerText) - 1;
+            }
+        });
+
+        tracking.appendChild(decrement);
+        tracking.appendChild(increment);
+        wrap.appendChild(tracking);
     }
 }
 
