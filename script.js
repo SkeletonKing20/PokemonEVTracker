@@ -62,11 +62,11 @@ function enforceInputMinMax(el) {
 
 function calcHPStat(base, iv, ev, level) {
     
-    return base <= 1 ? 1 : Math.floor(((parseInt(iv) + 2 * parseInt(base) + (parseInt(ev)/4) ) * parseInt(level)/100 ) + 10 + parseInt(level));
+    return base <= 1 ? 1 : Math.floor((Math.floor((parseInt(iv) + 2 * parseInt(base) + Math.floor(parseInt(ev)/4) ) * parseInt(level))/100 ) + 10 + parseInt(level));
 }
 
 function calcOtherStat(base, iv, ev, level, natureMod) {
-    return Math.floor((((parseInt(iv) + 2 * parseInt(base) + (parseInt(ev)/4) ) * parseInt(level)/100 ) + 5) * natureMod);
+    return Math.floor((Math.floor((parseInt(iv) + 2 * parseInt(base) + (parseInt(ev)/4) ) * parseInt(level)/100 ) + 5) * natureMod);
 }
 
 function calcFinalStats(){
@@ -317,7 +317,7 @@ function addPokemon(){
         let name = getName(obj.pokemon[i].Name);
 
         let wrap = document.createElement('div');
-        let nameEl = document.createElement('p');
+        let nameEl = document.createElement('h3');
         let count = document.createElement('p');
         count.classList += "counter";
         count.innerText = 0;
@@ -346,43 +346,48 @@ function addPokemon(){
         evGain.appendChild(head);
         evGain.appendChild(body);
 
+        let tr1 = document.createElement('tr');
+        head.appendChild(tr1);
         let hp = document.createElement('th');
         hp.innerText = 'HP';
-        head.appendChild(hp);
+        tr1.appendChild(hp);
         let atk = document.createElement('th');
         atk.innerText = 'ATK';
-        head.appendChild(atk);
+        tr1.appendChild(atk);
         let def = document.createElement('th');
         def.innerText = 'DEF';
-        head.appendChild(def);
+        tr1.appendChild(def);
         let spatk = document.createElement('th');
         spatk.innerText = 'SP.ATK';
-        head.appendChild(spatk);
+        tr1.appendChild(spatk);
         let spdef = document.createElement('th');
         spdef.innerText = 'SP.DEF';
-        head.appendChild(spdef);
+        tr1.appendChild(spdef);
         let speed = document.createElement('th');
         speed.innerText = 'SPEED';
-        head.appendChild(speed);
+        tr1.appendChild(speed);
 
+
+        let tr2 = document.createElement('tr');
+        body.appendChild(tr2);
         let hpEv = document.createElement('td');
         hpEv.innerText = evs[0];
-        body.appendChild(hpEv);
+        tr2.appendChild(hpEv);
         let atkEv = document.createElement('td');
         atkEv.innerText = evs[1];
-        body.appendChild(atkEv);
+        tr2.appendChild(atkEv);
         let defEv = document.createElement('td');
         defEv.innerText = evs[2];
-        body.appendChild(defEv);
+        tr2.appendChild(defEv);
         let spatkEv = document.createElement('td');
         spatkEv.innerText = evs[3];
-        body.appendChild(spatkEv);
+        tr2.appendChild(spatkEv);
         let spdefEv = document.createElement('td');
         spdefEv.innerText = evs[4];
-        body.appendChild(spdefEv);
+        tr2.appendChild(spdefEv);
         let speedEv = document.createElement('td');
         speedEv.innerText = evs[5];
-        body.appendChild(speedEv);
+        tr2.appendChild(speedEv);
 
         wrap.appendChild(evGain);
         
